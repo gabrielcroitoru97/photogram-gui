@@ -48,15 +48,16 @@
 </table>
 
 <h2>Add a new comment</h2>
-<form action="/add_caption" method="post">
-      <label for="photo_id_box">Photo ID</label>
-      <input type="text" id="photo_id_box" name="photo_id" value=<%=@the_photo.id%>>
 
-      <label for="author_id_box">Author ID</label>
-      <input type="text" id="author_id_box" name="author_id" placeholder="Enter your author ID">
+<form action="/add_comment" method="post">
+  <label for="photo_id_box">Photo ID</label>
+  <input type="text" id="photo_id_box" name="query_photo_id" value="<%= @the_photo.id %>">
 
-      <label for="comment_box">Comment</label>
-      <textarea type="text" id="comment_box" name="comment" placeholder="Enter a comment"></textarea>
+  <label for="author_id_box">Author ID</label>
+  <input type="text" id="author_id_box" name="query_author_id" placeholder="Enter your author ID">
 
-      <button>Add comment</button>
+  <label for="comment_box">Comment</label>
+  <textarea id="comment_box" name="query_comment" placeholder="Enter a comment"></textarea>
+
+  <button type="submit">Add comment</button>
 </form>

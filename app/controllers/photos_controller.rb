@@ -16,7 +16,7 @@ class PhotosController<ApplicationController
     @new_photo.caption=params.fetch("caption")
     @new_photo.owner_id=params.fetch("owner_id")
     @new_photo.save
-    redirect_to("/photos", { :notice => "Actor created successfully." })
+    redirect_to("/photos/#{@new_photo.id}", { :notice => "Actor created successfully." })
   end
 
   def edit
@@ -37,13 +37,6 @@ class PhotosController<ApplicationController
 
   end
 
-  def add_comment
-    @new_comment=Comment.new
-    @new_comment.photo_id=params.fetch("photo_id")
-    @new_comment.author_id=params.fetch("author_id")
-    @new_comment.body=params.fetch("comment")
-    @new_comment.save
-    redirect_to("/photos/#{@new_comment.photo_id}")
-  end
+
 
 end

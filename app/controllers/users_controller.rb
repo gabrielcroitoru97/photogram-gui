@@ -5,21 +5,19 @@ class UsersController<ApplicationController
   end
   def insert
     @new_user=User.new
-    @new_user.username=params.fetch("username")
-  #  if @new_user.valid?
-      @new_user.save
-    redirect_to("/users", { :notice => "Actor created successfully." })
- #   else
-   #   redirect_to("/users")
-  #  end
+    @new_user.username=params.fetch("query_username")
+
+    @new_user.save
+    redirect_to("/users/#{@new_user.username}")
+
   end
 
   def edit
     the_username=params.fetch("path_id")
     @the_user=User.where({:username=>the_username}).at(0)
-    @the_user.username=params.fetch("username")
+    @the_user.username=params.fetch("query_username")
     @the_user.save
-    redirect_to("/users/#{@the_user.username}", { :notice => "Actor created successfully." })
+    redirect_to("/users/#{@the_user.username}")
 
   end
 
